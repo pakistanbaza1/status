@@ -1,0 +1,29 @@
+using System;
+using System.Net;
+using System.IO;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.example.com");
+
+       
+        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+        // check the status code of the response
+        if (response.StatusCode == HttpStatusCode.OK)
+        {
+ 
+            Console.WriteLine("Response status code: " + (int)response.StatusCode);
+        }
+        else
+        {
+         
+            Console.WriteLine("Error: " + (int)response.StatusCode);
+        }
+
+        response.Close();
+    }
+}
